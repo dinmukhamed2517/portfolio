@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Mont">
+        <item name="fontFamily">@font/mont_regular</item>
+    </style>
+    <style name="Mont.Bold">
+        <item name="fontFamily">@font/mont_bold</item>
+    </style>
+    <style name="Mont.SemiBold">
+        <item name="fontFamily">@font/mont_semibold</item>
+    </style>
+
+</resources>

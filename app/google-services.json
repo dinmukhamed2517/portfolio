@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "707220146401",
+    "project_id": "portfolio-370d0",
+    "storage_bucket": "portfolio-370d0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:707220146401:android:a68908c328e1d4a5240fa0",
+        "android_client_info": {
+          "package_name": "kz.sdk.portfolio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7a6LcMPMJWZGUqw6LL5zheWL2hM2JuVg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
