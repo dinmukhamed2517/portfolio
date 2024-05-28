@@ -9,6 +9,10 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kz.sdk.portfolio.models.Education
+import kz.sdk.portfolio.models.License
+import kz.sdk.portfolio.models.Reward
+import kz.sdk.portfolio.models.Skill
 
 abstract class FRDBWrapper<T> {
     private val db = FirebaseDatabase.getInstance()
@@ -52,12 +56,60 @@ abstract class FRDBWrapper<T> {
     fun saveProfilePic(value: String) {
         db.getReference(getTableName()).child("pictureUrl").setValue(value)
     }
+
+
 //    fun saveEventToList(value: Event) {
 //        val Id = db.getReference(getTableName()).push().key
 //        if (Id != null) {
 //            db.getReference(getTableName()).child("favorites").child(Id).setValue(value)
 //        }
 //    }
+
+
+    fun saveLicenseToList(value:License){
+        val Id = db.getReference(getTableName()).push().key
+        if(Id != null){
+            db.getReference(getTableName()).child("licenses").child(Id).setValue(value)
+        }
+    }
+    fun saveSkillToList(value: Skill){
+        val Id = db.getReference(getTableName()).push().key
+        if(Id != null){
+            db.getReference(getTableName()).child("skills").child(Id).setValue(value)
+        }
+    }
+    fun deleteSkillFromList(value:String){
+        val ref = db.getReference(getTableName()).child("skills").child(value)
+        ref.removeValue()
+    }
+    fun deleteLicenseFromList(value:String){
+        val ref = db.getReference(getTableName()).child("licenses").child(value)
+        ref.removeValue()
+    }
+
+    fun saveEducationToList(value:Education){
+        val Id = db.getReference(getTableName()).push().key
+        if(Id != null){
+            db.getReference(getTableName()).child("educations").child(Id).setValue(value)
+        }
+    }
+
+    fun saveRewardToList(value:Reward){
+        val Id = db.getReference(getTableName()).push().key
+        if(Id != null){
+            db.getReference(getTableName()).child("rewards").child(Id).setValue(value)
+        }
+    }
+    fun deleteRewardFromList(value:String){
+        val ref = db.getReference(getTableName()).child("rewards").child(value)
+        ref.removeValue()
+    }
+
+
+    fun deleteEducationFromList(value:String){
+        val ref = db.getReference(getTableName()).child("educations").child(value)
+        ref.removeValue()
+    }
     fun deleteProductFromList(value:String){
         val ref = db.getReference(getTableName()).child("favorites").child(value)
         ref.removeValue()

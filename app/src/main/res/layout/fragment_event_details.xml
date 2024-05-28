@@ -66,35 +66,20 @@
             tools:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." />
 
     </ScrollView>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/watch_video_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Смотреть"
+        style="@style/Mont.SemiBold"
+        android:layout_marginBottom="20dp"
+        android:padding="15dp"
+        android:backgroundTint="@color/booking"
+        android:layout_marginHorizontal="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
-<!--    <com.google.android.material.button.MaterialButton-->
-<!--        android:id="@+id/go_to_conf"-->
-<!--        style="@style/Mont.SemiBold"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginHorizontal="40dp"-->
-<!--        android:backgroundTint="@color/booking"-->
-<!--        android:padding="15dp"-->
-<!--        android:text="Участвовать в конференции"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/add_to_favorites"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent" />-->
-
-
-
-<!--    <com.google.android.material.button.MaterialButton-->
-<!--        android:id="@+id/add_to_favorites"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Добавить в избранное"-->
-<!--        style="@style/Mont.SemiBold"-->
-<!--        android:layout_marginBottom="20dp"-->
-<!--        android:padding="15dp"-->
-<!--        android:backgroundTint="@color/main_color"-->
-<!--        android:layout_marginHorizontal="40dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,4 +9,5 @@ data class Event(
     var title:String? = null,
     var img:String? = null,
     var description:String? = null,
+    var videoUrl:String? = null,
 ): Parcelable

@@ -1,40 +1,40 @@
 package kz.sdk.portfolio.fragments
 
-import android.app.Activity
 import android.app.DatePickerDialog
-import android.app.TimePickerDialog
 import android.content.Context
-import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.app.ActivityCompat.startActivityForResult
-import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.card.MaterialCardView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import dagger.hilt.android.AndroidEntryPoint
 import kz.sdk.portfolio.base.BaseFragment
-import kz.sdk.portfolio.databinding.FragmentAdminBinding
+import kz.sdk.portfolio.databinding.FragmentAddLicenseBinding
+import kz.sdk.portfolio.firebase.UserDao
 import kz.sdk.portfolio.models.Event
+import kz.sdk.portfolio.models.License
 import java.util.Calendar
-import java.util.UUID
 import javax.inject.Inject
 
 
 @AndroidEntryPoint
-class AdminFragment: BaseFragment<FragmentAdminBinding>(FragmentAdminBinding::inflate) {
-
+class AddLicenseFragment:BaseFragment<FragmentAddLicenseBinding>(FragmentAddLicenseBinding::inflate) {
     override var showBottomNavigation = false
 
     private var imageUri: Uri? = null
 
+    private lateinit var issuedDate: String
+
+
     @Inject
     lateinit var storageReference: StorageReference
+
+    @Inject
+    lateinit var firebaseAuth: FirebaseAuth
+    @Inject
+    lateinit var userDao: UserDao
 
     private val imageResultLauncher = registerForActivityResult(
         androidx.activity.result.contract.ActivityResultContracts.GetContent()
@@ -46,9 +46,15 @@ class AdminFragment: BaseFragment<FragmentAdminBinding>(FragmentAdminBinding::in
         }
     }
 
-
     override fun onBindView() {
         super.onBindView()
+
+        binding.date1Btn.setOnClickListener {
+            showDatePickerDialog(requireContext()){year, month, dayOfMonth ->
+                issuedDate = "$dayOfMonth/${month + 1}/$year"
+                binding.selectedDate1.text = issuedDate
+            }
+        }
 
         binding.backBtn.setOnClickListener {
             findNavController().popBackStack()
@@ -57,11 +63,18 @@ class AdminFragment: BaseFragment<FragmentAdminBinding>(FragmentAdminBinding::in
             selectEventImage()
         }
         binding.createBtn.setOnClickListener {
-            if (binding.nameInput.text.isNullOrEmpty() || binding.noteInput.text.isNullOrEmpty() || binding.videoInput.text.isNullOrEmpty()) {
+            if (binding.nameInput.text.isNullOrEmpty() || binding.descriptionInput.text.isNullOrEmpty()) {
                 Toast.makeText(context, "Заполните все поля", Toast.LENGTH_SHORT).show()
             } else {
                 uploadImage { imageUrl ->
-                    saveEventToDatabase(binding.nameInput.text.toString(), binding.noteInput.text.toString(), imageUrl, binding.videoInput.text.toString())
+                    val license = License(
+                        title = binding.nameInput.text.toString(),
+                        description = binding.descriptionInput.text.toString(),
+                        issues = "Получено $issuedDate",
+                        img = imageUrl
+                    )
+                    userDao.saveLicenseToList(license)
+                    showCustomDialog("Успех", "Вы добавили сертификат")
                 }
             }
         }
@@ -84,24 +97,22 @@ class AdminFragment: BaseFragment<FragmentAdminBinding>(FragmentAdminBinding::in
             }
         }
     }
-    private fun saveEventToDatabase(name: String, note: String, imageUrl: String, videoUrl:String) {
-        val databaseReference = FirebaseDatabase.getInstance().getReference("Events")
-        val eventId = databaseReference.push().key
-        val event = Event(
-            id = eventId,
-            title = name,
-            description = note,
-            img = imageUrl,
-            videoUrl = videoUrl,
+    fun showDatePickerDialog(context: Context, onDateSet: (year: Int, month: Int, dayOfMonth: Int) -> Unit) {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val datePickerDialog = DatePickerDialog(
+            context,
+            { _, selectedYear, selectedMonth, selectedDayOfMonth ->
+                onDateSet(selectedYear, selectedMonth, selectedDayOfMonth)
+            },
+            year,
+            month,
+            day
         )
-        eventId?.let {
-            databaseReference.child(it).setValue(event).addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    showCustomDialog("Успех", "Курс добавлен успешно!")
-                } else {
-                    Toast.makeText(context, "Failed to create event: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
+
+        datePickerDialog.show()
     }
 }

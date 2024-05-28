@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Добавить Курс"
+        android:text="Навыки"
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:hint="Введите название"
+            android:hint="Навык"
             android:inputType="textCapSentences"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
@@ -57,7 +57,7 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/note_layout"
+        android:id="@+id/where_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -67,12 +67,12 @@
         app:layout_constraintTop_toBottomOf="@+id/name_layout">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/note_input"
+            android:id="@+id/where_input"
             style="@style/Mont"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:hint="Введите описание"
+            android:hint="Где получили"
             android:inputType="textCapSentences"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
@@ -80,28 +80,8 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/video_layout"
-        android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_height="wrap_content"
-        app:hintTextColor="@color/secondaty_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/upload_img">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/video_input"
-            style="@style/Mont"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:hint="Введите cсылку на видео"
-            android:inputType="textCapSentences"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:textSize="16sp" />
-    </com.google.android.material.textfield.TextInputLayout>
+
 
 
 
@@ -112,7 +92,7 @@
         android:layout_marginBottom="40dp"
         android:padding="10dp"
         android:layout_marginHorizontal="40dp"
-        android:text="Создать"
+        android:text="Добавить"
         android:backgroundTint="@color/booking"
         android:textColor="@color/white"
         style="@style/Mont.SemiBold"
@@ -123,49 +103,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/upload_img"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="20dp"
-        android:backgroundTint="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
 
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/note_layout"
-        app:layout_constraintVertical_weight="1"
-        app:strokeWidth="2dp">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/img"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/text_img"
-                style="@style/Mont"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Выберите изображение"
-                android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
 
 
 

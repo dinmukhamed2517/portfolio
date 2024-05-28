@@ -33,15 +33,16 @@ class EventDetailsFragment: BaseFragment<FragmentEventDetailsBinding>(FragmentEv
                 .into(img)
             description.text = event.description
 
-//            addToFavorites.setOnClickListener {
-//                userDao.saveEventToList(event)
-//                showCustomDialog("Успех", "Вы сохранили cобытие в избранное")
-//
-//            }
-//            backBtn.setOnClickListener {
-//                findNavController().popBackStack()
-//            }
-//
+            watchVideoBtn.setOnClickListener {
+                event.videoUrl?.let { url ->
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                    startActivity(intent)
+                }
+            }
+
+            backBtn.setOnClickListener {
+                findNavController().popBackStack()
+            }
 
         }
 

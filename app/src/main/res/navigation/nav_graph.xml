@@ -11,6 +11,9 @@
         <action
             android:id="@+id/action_homeFragment_to_eventDetailsFragment"
             app:destination="@id/eventDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_deleteEventsFragment"
+            app:destination="@id/deleteEventsFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -49,6 +52,30 @@
         <action
             android:id="@+id/action_profileFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_addEducationFragment"
+            app:destination="@id/addEducationFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_addLicenseFragment"
+            app:destination="@id/addLicenseFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_addSkillFragment"
+            app:destination="@id/addSkillFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_deleteEducationFragment"
+            app:destination="@id/deleteEducationFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_deleteSkillFragment"
+            app:destination="@id/deleteSkillFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_deleteLicenseFragment"
+            app:destination="@id/deleteLicenseFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_adminFragment"
+            app:destination="@id/adminFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_updateProfileFragment"
+            app:destination="@id/updateProfileFragment" />
     </fragment>
     <fragment
         android:id="@+id/adminFragment"
@@ -62,4 +89,58 @@
             android:name="event"
             app:argType="kz.sdk.portfolio.models.Event" />
     </fragment>
+    <fragment
+        android:id="@+id/rewardsFragment"
+        android:name="kz.sdk.portfolio.fragments.RewardsFragment"
+        android:label="RewardsFragment" >
+        <action
+            android:id="@+id/action_rewardsFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_rewardsFragment_to_addRewardFragment"
+            app:destination="@id/addRewardFragment" />
+        <action
+            android:id="@+id/action_rewardsFragment_to_deleteRewardFragment"
+            app:destination="@id/deleteRewardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEducationFragment"
+        android:name="kz.sdk.portfolio.fragments.AddEducationFragment"
+        android:label="AddEducationFragment" />
+    <fragment
+        android:id="@+id/addLicenseFragment"
+        android:name="kz.sdk.portfolio.fragments.AddLicenseFragment"
+        android:label="AddLicenseFragment" />
+    <fragment
+        android:id="@+id/addSkillFragment"
+        android:name="kz.sdk.portfolio.fragments.AddSkillFragment"
+        android:label="AddSkillFragment" />
+    <fragment
+        android:id="@+id/deleteEducationFragment"
+        android:name="kz.sdk.portfolio.fragments.DeleteEducationFragment"
+        android:label="DeleteEducationFragment" />
+    <fragment
+        android:id="@+id/deleteLicenseFragment"
+        android:name="kz.sdk.portfolio.fragments.DeleteLicenseFragment"
+        android:label="DeleteLicenseFragment" />
+    <fragment
+        android:id="@+id/deleteSkillFragment"
+        android:name="kz.sdk.portfolio.fragments.DeleteSkillFragment"
+        android:label="DeleteSkillFragment" />
+    <fragment
+        android:id="@+id/addRewardFragment"
+        android:name="kz.sdk.portfolio.fragments.AddRewardFragment"
+        android:label="AddRewardFragment" />
+    <fragment
+        android:id="@+id/deleteRewardFragment"
+        android:name="kz.sdk.portfolio.fragments.DeleteRewardFragment"
+        android:label="DeleteRewardFragment" />
+    <fragment
+        android:id="@+id/updateProfileFragment"
+        android:name="kz.sdk.portfolio.fragments.UpdateProfileFragment"
+        android:label="UpdateProfileFragment" />
+    <fragment
+        android:id="@+id/deleteEventsFragment"
+        android:name="kz.sdk.portfolio.fragments.DeleteEventsFragment"
+        android:label="DeleteEventsFragment" />
 </navigation>

@@ -18,7 +18,6 @@ import kz.sdk.portfolio.models.Event
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
 
     private lateinit var adapter: EventAdapter
-
     override fun onBindView() {
         super.onBindView()
         adapter = EventAdapter()
@@ -26,6 +25,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         with(binding) {
             eventRecycler.adapter = adapter
             eventRecycler.layoutManager = LinearLayoutManager(requireContext())
+            editBtn.setOnClickListener {
+                findNavController().navigate(R.id.action_homeFragment_to_deleteEventsFragment)
+            }
         }
         adapter.itemClick = {
             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToEventDetailsFragment(it))
