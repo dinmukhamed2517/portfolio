@@ -78,6 +78,9 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
             addSkillBtn.setOnClickListener {
                 findNavController().navigate(R.id.action_profileFragment_to_addSkillFragment)
             }
+            libraryBtn.setOnClickListener {
+                findNavController().navigate(R.id.action_profileFragment_to_documentsFragment)
+            }
         }
 
         userDao.getDataLiveData.observe(viewLifecycleOwner) { user ->

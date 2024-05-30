@@ -207,6 +207,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/library_btn"
+        style="@style/Mont"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:layout_height="wrap_content"
+        android:text="Научная библиотека"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/skill_recycler" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/baseline_arrow_forward_24"
+        app:layout_constraintBottom_toBottomOf="@+id/library_btn"
+        app:layout_constraintStart_toEndOf="@+id/library_btn"
+        app:layout_constraintTop_toTopOf="@+id/library_btn" />
+
 
 
 

@@ -2,8 +2,10 @@ package kz.sdk.portfolio.base
 
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
+import kz.sdk.portfolio.models.Document
 import kz.sdk.portfolio.models.Education
 import kz.sdk.portfolio.models.Event
+import kz.sdk.portfolio.models.Filter
 import kz.sdk.portfolio.models.License
 import kz.sdk.portfolio.models.Reward
 import kz.sdk.portfolio.models.Skill
@@ -27,4 +29,10 @@ abstract class BaseSkillViewHolder<VB : ViewBinding>(override val binding: VB) :
 
 abstract class BaseRewardViewHolder<VB : ViewBinding>(override val binding: VB) :
     BaseViewHolder<VB, Reward>(binding)
+
+abstract class BaseFilterViewHolder<VB : ViewBinding>(override val binding: VB) :
+    BaseViewHolder<VB, Filter>(binding)
+
+abstract class BaseDocumentViewHolder<VB : ViewBinding>(override val binding: VB) :
+    BaseViewHolder<VB, Document>(binding)
 

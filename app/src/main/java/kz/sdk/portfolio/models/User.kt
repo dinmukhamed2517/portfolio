@@ -10,5 +10,6 @@ data class User(
     var licenses:Map<String, License> = emptyMap(),
     var skills:Map<String, Skill> = emptyMap(),
     var rewards:Map<String, Reward> = emptyMap(),
+    var documents:Map<String, Document> = emptyMap(),
 
 )

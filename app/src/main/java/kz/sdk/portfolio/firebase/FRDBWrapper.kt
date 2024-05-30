@@ -9,6 +9,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kz.sdk.portfolio.models.Document
 import kz.sdk.portfolio.models.Education
 import kz.sdk.portfolio.models.License
 import kz.sdk.portfolio.models.Reward
@@ -92,6 +93,17 @@ abstract class FRDBWrapper<T> {
         if(Id != null){
             db.getReference(getTableName()).child("educations").child(Id).setValue(value)
         }
+    }
+    fun saveDocumentToList(value:Document){
+        val Id = db.getReference(getTableName()).push().key
+        if(Id != null){
+            db.getReference(getTableName()).child("documents").child(Id).setValue(value)
+        }
+    }
+
+    fun deleteDocumentToList(value:String){
+        val ref = db.getReference(getTableName()).child("documents").child(value)
+        ref.removeValue()
     }
 
     fun saveRewardToList(value:Reward){
